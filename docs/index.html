@@ -4,229 +4,339 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hoyt Fantasy Football Stats</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Monaco', 'Courier New', monospace;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #1e40af;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #60a5fa;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1.1em;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            color: #60a5fa;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #1e3a8a;
+        }
+
+        .stat-description {
+            color: #cbd5e1;
+            margin-bottom: 15px;
+            line-height: 1.5;
+            font-size: 0.95em;
+        }
+
+        .stat-box {
+            background-color: #1e293b;
+            padding: 20px;
+            border-left: 3px solid #2563eb;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow-x: auto;
+        }
+
+        .stat-box-content {
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 2px solid #1e40af;
+            color: #64748b;
+        }
+
+        footer a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .section-title {
+                font-size: 1.1em;
+            }
+
+            .stat-box {
+                font-size: 0.85em;
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <div class="header-content">
-                <h1>🏈 Hoyt Fantasy Football Stats</h1>
-                <p class="subtitle">Comprehensive League Analytics Powered by Sleeper API & DuckDB</p>
-            </div>
+            <h1>🏈 Hoyt Fantasy Football Stats</h1>
+            <p class="subtitle">League Analysis - Week 1-14</p>
         </header>
 
-        <main>
-            <section class="intro">
-                <h2>What is this?</h2>
-                <p>A Python-based analytics tool that fetches your Sleeper fantasy football league data and computes <strong>16 different statistics</strong> to rank teams, find patterns, and uncover the luck factor in your league.</p>
-                <p>Everything runs locally with <strong>zero databases</strong> or external services—just pure data analysis magic ✨</p>
-            </section>
 
-            <section class="stats-preview">
-                <h2>📊 16 Stats You Get</h2>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-emoji">📈</div>
-                        <h3>Standings & Records</h3>
-                        <p>Win/loss records and average points per game</p>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-emoji">🔥</div>
-                        <h3>Top Performances</h3>
-                        <p>Highest and lowest scoring weeks</p>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-emoji">🎯</div>
-                        <h3>Consistency</h3>
-                        <p>Who's most reliable (and who isn't)</p>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-emoji">🏆</div>
-                        <h3>Frequency</h3>
-                        <p>Most weekly highs and lows</p>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-emoji">⚡</div>
-                        <h3>Clutch Factor</h3>
-                        <p>Wins vs weak opponents & losses vs strong ones</p>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-emoji">🎲</div>
-                        <h3>Head-to-Head</h3>
-                        <p>Record against each opponent</p>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-emoji">🏅</div>
-                        <h3>Dominant Wins</h3>
-                        <p>Biggest point margin victories</p>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-emoji">🤝</div>
-                        <h3>Close Games</h3>
-                        <p>Closest matchups of the season</p>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-emoji">🍀</div>
-                        <h3>Luck Factor</h3>
-                        <p>Actual vs expected record</p>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-emoji">📈</div>
-                        <h3>Volatility</h3>
-                        <p>Biggest week-to-week swings</p>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-emoji">💪</div>
-                        <h3>Win Scoring</h3>
-                        <p>Points when you're winning</p>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-emoji">😔</div>
-                        <h3>Loss Scoring</h3>
-                        <p>Points when you're losing</p>
-                    </div>
-                </div>
-            </section>
+        <!-- Overall Standings -->
+        <section>
+            <div class="section-title">📊 Overall Standings</div>
+            <p class="stat-description">
+                Final records and average points per game for all teams. Shows who's winning the league and who's putting up the most points consistently.
+            </p>
+            <div class="stat-box">
+                <div class="stat-box-content">
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                           FANTASY FOOTBALL STATS - WEEKS 1-14                                     ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
 
-            <section class="features">
-                <h2>✨ Why This is Cool</h2>
-                <div class="feature-list">
-                    <div class="feature">
-                        <span class="feature-icon">⚡</span>
-                        <div>
-                            <h3>Lightning Fast</h3>
-                            <p>In-memory DuckDB queries run instantly</p>
-                        </div>
-                    </div>
-                    <div class="feature">
-                        <span class="feature-icon">🔄</span>
-                        <div>
-                            <h3>Always Fresh</h3>
-                            <p>Run anytime to get latest league data from Sleeper</p>
-                        </div>
-                    </div>
-                    <div class="feature">
-                        <span class="feature-icon">🛠️</span>
-                        <div>
-                            <h3>Customizable</h3>
-                            <p>Jupyter notebook lets you write custom queries</p>
-                        </div>
-                    </div>
-                    <div class="feature">
-                        <span class="feature-icon">📊</span>
-                        <div>
-                            <h3>Beautiful Output</h3>
-                            <p>Formatted tables and stats ready to share</p>
-                        </div>
-                    </div>
+📊 OVERALL STANDINGS
+─────────────────────────────────────────────────────────────────────────────────────────────────────
+   1. Egbuka Matata                   11-3   140.46 avg pts
+   2. Jefferson Starship              9-5   127.11 avg pts
+   3. 🙌🏼 Praise Jah 🙌🏼            8-6   120.36 avg pts
+   4. El Travador                     7-7   129.66 avg pts
+   5. Luke at my Big Dicker           7-7   127.92 avg pts
+   6. Spicy Bijan Mustard             7-7   126.21 avg pts
+   7. Bridezilla                      7-7   115.74 avg pts
+   8. Super Weenie Hut Jr             6-8   113.19 avg pts
+   9. Kenergy                         4-10  122.97 avg pts
+  10. Kittle Me This                  4-10  122.59 avg pts
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="how-it-works">
-                <h2>🔧 How It Works</h2>
-                <div class="steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h3>Fetch Data</h3>
-                            <p>Connects to Sleeper API to grab league info, rosters, and matchups</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h3>Transform</h3>
-                            <p>Converts raw API data into structured DataFrames</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h3>Query</h3>
-                            <p>Runs SQL queries on in-memory DuckDB database</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <div class="step-content">
-                            <h3>Display</h3>
-                            <p>Outputs beautifully formatted results</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <!-- Top Scores -->
+        <section>
+            <div class="section-title">🔥 Top 10 Scores & ❄️ Top 10 Lowest</div>
+            <p class="stat-description">
+                Highest and lowest individual week performances. See who had the best week and who struggled the most.
+            </p>
+            <div class="stat-box">
+                <div class="stat-box-content">
+🔥 TOP 10 SCORES
+─────────────────────────────────────────────────────────────────────────────────────────────────────
+   1. Luke at my Big Dicker           Wk  1   191.51  [W]
+   2. Egbuka Matata                   Wk  5   187.45  [W]
+   3. Egbuka Matata                   Wk  3   177.77  [W]
+   4. El Travador                     Wk  4   175.93  [W]
+   5. Jefferson Starship              Wk  7   173.39  [W]
+   6. Kenergy                         Wk  6   172.36  [W]
+   7. Luke at my Big Dicker           Wk  8   171.83  [W]
+   8. Egbuka Matata                   Wk  7   168.43  [W]
+   9. Kenergy                         Wk  8   164.28  [L]
+  10. Jefferson Starship              Wk  3   161.34  [W]
 
-            <section class="tech-stack">
-                <h2>🛠️ Tech Stack</h2>
-                <div class="tech-grid">
-                    <div class="tech-item">
-                        <h3>Python 3.9+</h3>
-                        <p>Core language</p>
-                    </div>
-                    <div class="tech-item">
-                        <h3>DuckDB</h3>
-                        <p>Fast SQL queries</p>
-                    </div>
-                    <div class="tech-item">
-                        <h3>Pandas</h3>
-                        <p>Data transformation</p>
-                    </div>
-                    <div class="tech-item">
-                        <h3>Sleeper API</h3>
-                        <p>League data source</p>
-                    </div>
-                    <div class="tech-item">
-                        <h3>Jupyter</h3>
-                        <p>Interactive notebook</p>
-                    </div>
+❄️  TOP 10 LOWEST SCORES
+─────────────────────────────────────────────────────────────────────────────────────────────────────
+   1. Bridezilla                      Wk  8    52.31  [L]
+   2. Super Weenie Hut Jr             Wk  5    76.20  [L]
+   3. Kenergy                         Wk  1    79.68  [L]
+   4. Kenergy                         Wk 12    80.11  [L]
+   5. Bridezilla                      Wk  2    86.53  [L]
+   6. El Travador                     Wk  1    87.12  [L]
+   7. Luke at my Big Dicker           Wk  6    87.60  [L]
+   8. Bridezilla                      Wk  7    88.89  [L]
+   9. Super Weenie Hut Jr             Wk  6    89.37  [W]
+  10. Kittle Me This                  Wk  3    91.37  [L]
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="getting-started">
-                <h2>🚀 Quick Start</h2>
-                <div class="cta-buttons">
-                    <a href="https://github.com/anorum/hoyt-fantasy-stats" class="btn btn-primary">📖 View on GitHub</a>
-                    <a href="https://github.com/anorum/hoyt-fantasy-stats#setup" class="btn btn-secondary">⚙️ Setup Guide</a>
+        <!-- Consistency -->
+        <section>
+            <div class="section-title">🎯 Consistency Score (Lower = More Consistent)</div>
+            <p class="stat-description">
+                Standard deviation of points scored. Lower numbers mean teams score about the same every week. Higher numbers = boom or bust.
+            </p>
+            <div class="stat-box">
+                <div class="stat-box-content">
+   1. Jefferson Starship              19.85 std dev
+   2. Spicy Bijan Mustard             20.41 std dev
+   3. Egbuka Matata                   21.30 std dev
+   4. Kittle Me This                  22.41 std dev
+   5. Bridezilla                      23.30 std dev
                 </div>
-                <div class="quick-setup">
-                    <p><strong>TL;DR:</strong></p>
-                    <ol>
-                        <li>Clone the repo</li>
-                        <li>Add your Sleeper league ID to <code>league_id.txt</code></li>
-                        <li>Run <code>jupyter notebook</code> and execute the notebook</li>
-                        <li>Enjoy the stats!</li>
-                    </ol>
-                </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="faq">
-                <h2>❓ FAQ</h2>
-                <div class="faq-item">
-                    <h3>Is my data safe?</h3>
-                    <p>Yes! Everything runs locally on your machine. Your league data only comes from the official Sleeper API and never leaves your computer.</p>
+        <!-- Frequency Stats -->
+        <section>
+            <div class="section-title">🏆 Most High Scores & 📉 Most Low Scores by Week</div>
+            <p class="stat-description">
+                How many times each team had the highest (or lowest) scoring week. Shows consistency in dominance.
+            </p>
+            <div class="stat-box">
+                <div class="stat-box-content">
+🏆 MOST HIGH SCORES BY WEEK
+─────────────────────────────────────────────────────────────────────────────────────────────────────
+   1. Luke at my Big Dicker                 3 times
+   2. Kittle Me This                        2 times
+   3. El Travador                           2 times
+   4. Egbuka Matata                         2 times
+   5. Jefferson Starship                    2 times
+
+📉 MOST LOW SCORES BY WEEK
+─────────────────────────────────────────────────────────────────────────────────────────────────────
+   1. Bridezilla                            3 times
+   2. Kenergy                               3 times
+   3. Super Weenie Hut Jr                   2 times
                 </div>
-                <div class="faq-item">
-                    <h3>Can I customize the stats?</h3>
-                    <p>Absolutely! The notebook uses standard SQL (DuckDB dialect), so you can write your own queries against the matchups table.</p>
+            </div>
+        </section>
+
+        <!-- Clutch & Luck -->
+        <section>
+            <div class="section-title">⚡ Clutch Wins & 😰 Tough Losses</div>
+            <p class="stat-description">
+                Teams that beat the weakest competition (clutch factor) and teams that lost to the strongest competition most (bad luck).
+            </p>
+            <div class="stat-box">
+                <div class="stat-box-content">
+⚡ MOST WINS VS LOWEST-SCORING OPPONENT
+─────────────────────────────────────────────────────────────────────────────────────────────────────
+   1. Egbuka Matata                    2 wins
+   2. Jefferson Starship               1 wins
+   3. Luke at my Big Dicker            1 wins
+
+😰 MOST LOSSES VS HIGHEST-SCORING OPPONENT
+─────────────────────────────────────────────────────────────────────────────────────────────────────
+   1. Kenergy                          2 losses
+   2. Bridezilla                       2 losses
+   3. Super Weenie Hut Jr              2 losses
                 </div>
-                <div class="faq-item">
-                    <h3>How often should I run it?</h3>
-                    <p>Run it weekly after games complete to get fresh stats. Or run it anytime to check the current state.</p>
+            </div>
+        </section>
+
+        <!-- Scoring Patterns -->
+        <section>
+            <div class="section-title">💪 Points in Wins & 😔 Points in Losses</div>
+            <p class="stat-description">
+                Average scoring when winning vs losing. Shows who stays dominant in wins and who doesn't collapse when losing.
+            </p>
+            <div class="stat-box">
+                <div class="stat-box-content">
+💪 AVG POINTS IN WINS
+─────────────────────────────────────────────────────────────────────────────────────────────────────
+   1. Egbuka Matata                   145.47 avg
+   2. Luke at my Big Dicker           138.50 avg
+   3. Jefferson Starship              133.16 avg
+   4. 🙌🏼 Praise Jah 🙌🏼            130.29 avg
+   5. Kittle Me This                  129.24 avg
+
+😔 AVG POINTS IN LOSSES
+─────────────────────────────────────────────────────────────────────────────────────────────────────
+   1. Luke at my Big Dicker           128.17 avg
+   2. El Travador                     127.86 avg
+   3. Egbuka Matata                   126.47 avg
+   4. Jefferson Starship              117.34 avg
+   5. Spicy Bijan Mustard             117.08 avg
                 </div>
-                <div class="faq-item">
-                    <h3>What if my league isn't on Sleeper?</h3>
-                    <p>This tool only works with Sleeper leagues. The API connects directly to Sleeper's infrastructure.</p>
+            </div>
+        </section>
+
+        <!-- Dominant Wins & Close Games -->
+        <section>
+            <div class="section-title">🏅 Most Dominant Wins & 🤝 Closest Games</div>
+            <p class="stat-description">
+                Biggest blowout victories and nail-biters. Which games were most dramatic?
+            </p>
+            <div class="stat-box">
+                <div class="stat-box-content">
+🏅 MOST DOMINANT WINS (Biggest Point Margins)
+─────────────────────────────────────────────────────────────────────────────────────────────────────
+   1. Luke at my Big Dicker           Wk  1   +87.73
+   2. Egbuka Matata                   Wk  5   +70.50
+   3. Egbuka Matata                   Wk  3   +68.55
+   4. El Travador                     Wk  4   +61.10
+   5. Jefferson Starship              Wk  7   +53.43
+
+🤝 CLOSEST MATCHUPS (Smallest Margins)
+─────────────────────────────────────────────────────────────────────────────────────────────────────
+   1. Jefferson Starship vs Bridezilla        W by  0.42
+   2. El Travador vs Kenergy                 W by  0.49
+   3. Spicy Bijan Mustard vs Super Weenie    W by  0.62
+   4. Kittle Me This vs 🙌🏼 Praise Jah      W by  0.71
+   5. Bridezilla vs Super Weenie Hut Jr      L by  0.87
                 </div>
-            </section>
-        </main>
+            </div>
+        </section>
+
+        <!-- Luck & Volatility -->
+        <section>
+            <div class="section-title">🍀 Lucky/Unlucky Record & 📈 Volatility</div>
+            <p class="stat-description">
+                Actual vs expected record (luck factor) and biggest scoring swings week-to-week. See who got lucky and who's unpredictable.
+            </p>
+            <div class="stat-box">
+                <div class="stat-box-content">
+🍀 LUCKY/UNLUCKY RECORD (Actual vs Expected)
+─────────────────────────────────────────────────────────────────────────────────────────────────────
+  Egbuka Matata                11-3   (exp: 10-4)    😍 +1
+  Jefferson Starship            9-5   (exp: 9-5)     🤷  0
+  Luke at my Big Dicker         7-7   (exp: 8-6)     😢 -1
+  El Travador                   7-7   (exp: 7-7)     🤷  0
+  Spicy Bijan Mustard           7-7   (exp: 6-8)     😍 +1
+  🙌🏼 Praise Jah 🙌🏼          8-6   (exp: 7-7)     😍 +1
+  Kenergy                       4-10  (exp: 4-10)    🤷  0
+  Bridezilla                    7-7   (exp: 6-8)     😍 +1
+  Super Weenie Hut Jr           6-8   (exp: 5-9)     😍 +1
+  Kittle Me This                4-10  (exp: 5-9)     😢 -1
+
+📈 WEEK-TO-WEEK VOLATILITY (Biggest Swings)
+─────────────────────────────────────────────────────────────────────────────────────────────────────
+   1. Kenergy                                45.68
+   2. Super Weenie Hut Jr                   44.89
+   3. Bridezilla                            42.88
+   4. El Travador                           41.07
+   5. Luke at my Big Dicker                 40.33
+                </div>
+            </div>
+        </section>
 
         <footer>
-            <p>Built with ❤️ for fantasy football nerds everywhere</p>
-            <p class="footer-links">
-                <a href="https://github.com/anorum/hoyt-fantasy-stats">GitHub</a> • 
-                <a href="https://www.sleeper.app">Sleeper</a> • 
-                <a href="https://duckdb.org">DuckDB</a>
-            </p>
+            <p>Generated by <a href="https://github.com/anorum/hoyt-fantasy-stats">Sleeper Fantasy Football Stats</a></p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Run the notebook to get fresh stats anytime!</p>
         </footer>
     </div>
 </body>
