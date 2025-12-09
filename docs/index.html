@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoyt Fantasy Football Stats</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Monaco', 'Courier New', monospace;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #1e40af;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #60a5fa;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1.1em;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            color: #60a5fa;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #1e3a8a;
+        }
+
+        .stat-description {
+            color: #cbd5e1;
+            margin-bottom: 15px;
+            line-height: 1.5;
+            font-size: 0.95em;
+        }
+
+        .stat-box {
+            background-color: #1e293b;
+            padding: 20px;
+            border-left: 3px solid #2563eb;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow-x: auto;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 2px solid #1e40af;
+            color: #64748b;
+        }
+
+        footer a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .section-title {
+                font-size: 1.1em;
+            }
+
+            .stat-box {
+                font-size: 0.85em;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏈 Hoyt Fantasy Football Stats</h1>
+            <p class="subtitle">League Analysis - Week 1-14</p>
+        </header>
+
+        <!-- Overall Standings -->
+        <section>
+            <div class="section-title">📊 Overall Standings</div>
+            <p class="stat-description">
+                Final records and average points per game for all teams. Shows who's winning the league and who's putting up the most points.
+            </p>
+            <div class="stat-box">
+   1. Egbuka Matata                   11-3   140.46 avg pts
+   2. Jefferson Starship              9-5   127.11 avg pts
+   3. 🙌🏼 Praise Jah 🙌🏼            8-6   120.36 avg pts
+   4. El Travador                     7-7   129.66 avg pts
+   5. Luke at my Big Dicker           7-7   127.92 avg pts
+   6. Spicy Bijan Mustard             7-7   126.21 avg pts
+   7. Bridezilla                      7-7   115.74 avg pts
+   8. Super Weenie Hut Jr             6-8   113.19 avg pts
+   9. Kenergy                         4-10  122.97 avg pts
+  10. Kittle Me This                  4-10  122.59 avg pts
+            </div>
+        </section>
+
+        <!-- Top Scores -->
+        <section>
+            <div class="section-title">🔥 Top 10 Scores</div>
+            <p class="stat-description">
+                Highest individual week performances.
+            </p>
+            <div class="stat-box">
+   1. Luke at my Big Dicker           Wk  1   191.51  [W]
+   2. Egbuka Matata                   Wk  5   187.45  [W]
+   3. Egbuka Matata                   Wk  3   177.77  [W]
+   4. El Travador                     Wk  4   175.93  [W]
+   5. Jefferson Starship              Wk  7   173.39  [W]
+   6. Kenergy                         Wk  6   172.36  [W]
+   7. Luke at my Big Dicker           Wk  8   171.83  [W]
+   8. Egbuka Matata                   Wk  7   168.43  [W]
+   9. Kenergy                         Wk  8   164.28  [L]
+  10. Jefferson Starship              Wk  3   161.34  [W]
+            </div>
+        </section>
+
+        <!-- Lowest Scores -->
+        <section>
+            <div class="section-title">❄️ Top 10 Lowest Scores</div>
+            <p class="stat-description">
+                Lowest individual week performances.
+            </p>
+            <div class="stat-box">
+   1. Bridezilla                      Wk  8    52.31  [L]
+   2. Super Weenie Hut Jr             Wk  5    76.20  [L]
+   3. Kenergy                         Wk  1    79.68  [L]
+   4. Kenergy                         Wk 12    80.11  [L]
+   5. Bridezilla                      Wk  2    86.53  [L]
+   6. El Travador                     Wk  1    87.12  [L]
+   7. Luke at my Big Dicker           Wk  6    87.60  [L]
+   8. Bridezilla                      Wk  7    88.89  [L]
+   9. Super Weenie Hut Jr             Wk  6    89.37  [W]
+  10. Kittle Me This                  Wk  3    91.37  [L]
+            </div>
+        </section>
+
+        <!-- Consistency -->
+        <section>
+            <div class="section-title">🎯 Consistency Score (Lower = More Consistent)</div>
+            <p class="stat-description">
+                Standard deviation of points scored. Lower = predictable/consistent, Higher = boom or bust.
+            </p>
+            <div class="stat-box">
+   1. Jefferson Starship              19.85 std dev
+   2. Spicy Bijan Mustard             20.41 std dev
+   3. Egbuka Matata                   21.30 std dev
+   4. Kittle Me This                  22.41 std dev
+   5. Bridezilla                      23.30 std dev
+   6. 🙌🏼 Praise Jah 🙌🏼            23.98 std dev
+   7. Luke at my Big Dicker           24.17 std dev
+   8. El Travador                     24.29 std dev
+   9. Super Weenie Hut Jr             25.59 std dev
+  10. Kenergy                         27.98 std dev
+            </div>
+        </section>
+
+        <!-- High Frequency -->
+        <section>
+            <div class="section-title">🏆 Most High Scores by Week</div>
+            <p class="stat-description">
+                How many times each team had the highest scoring performance in a week.
+            </p>
+            <div class="stat-box">
+   1. Luke at my Big Dicker                 3 times
+   2. Kittle Me This                        2 times
+   3. El Travador                           2 times
+   4. Egbuka Matata                         2 times
+   5. Jefferson Starship                    2 times
+   6. Bridezilla                            0 times
+   7. Kenergy                               0 times
+   8. Spicy Bijan Mustard                   0 times
+   9. Super Weenie Hut Jr                   0 times
+  10. 🙌🏼 Praise Jah 🙌🏼                0 times
+            </div>
+        </section>
+
+        <!-- Low Frequency -->
+        <section>
+            <div class="section-title">📉 Most Low Scores by Week</div>
+            <p class="stat-description">
+                How many times each team had the lowest scoring performance in a week.
+            </p>
+            <div class="stat-box">
+   1. Bridezilla                            3 times
+   2. Kenergy                               3 times
+   3. Super Weenie Hut Jr                   2 times
+   4. El Travador                           1 times
+   5. 🙌🏼 Praise Jah 🙌🏼                1 times
+   6. Jefferson Starship                    0 times
+   7. Luke at my Big Dicker                 0 times
+   8. Spicy Bijan Mustard                   0 times
+   9. Egbuka Matata                         0 times
+  10. Kittle Me This                        0 times
+            </div>
+        </section>
+
+        <!-- Clutch Wins -->
+        <section>
+            <div class="section-title">⚡ Most Wins vs Lowest-Scoring Opponent</div>
+            <p class="stat-description">
+                Wins when facing the week's worst-scoring opponent. Shows clutch ability.
+            </p>
+            <div class="stat-box">
+   1. Egbuka Matata                    2 wins
+   2. Jefferson Starship               1 wins
+   3. Luke at my Big Dicker            1 wins
+   4. Kittle Me This                   0 wins
+   5. Bridezilla                       0 wins
+   6. El Travador                      0 wins
+   7. Kenergy                          0 wins
+   8. Spicy Bijan Mustard              0 wins
+   9. Super Weenie Hut Jr              0 wins
+  10. 🙌🏼 Praise Jah 🙌🏼            0 wins
+            </div>
+        </section>
+
+        <!-- Tough Losses -->
+        <section>
+            <div class="section-title">😰 Most Losses vs Highest-Scoring Opponent</div>
+            <p class="stat-description">
+                Losses when facing the week's best-scoring opponent. Shows bad timing.
+            </p>
+            <div class="stat-box">
+   1. Kenergy                          2 losses
+   2. Bridezilla                       2 losses
+   3. Super Weenie Hut Jr              2 losses
+   4. El Travador                      1 losses
+   5. Egbuka Matata                    1 losses
+   6. Jefferson Starship               1 losses
+   7. Luke at my Big Dicker            1 losses
+   8. Kittle Me This                   0 losses
+   9. Spicy Bijan Mustard              0 losses
+  10. 🙌🏼 Praise Jah 🙌🏼            0 losses
+            </div>
+        </section>
+
+        <!-- Avg Points in Wins -->
+        <section>
+            <div class="section-title">💪 Average Points in Wins</div>
+            <p class="stat-description">
+                Average scoring when winning. Higher means dominant victories.
+            </p>
+            <div class="stat-box">
+   1. Egbuka Matata                   145.47 avg
+   2. Luke at my Big Dicker           138.50 avg
+   3. Jefferson Starship              133.16 avg
+   4. 🙌🏼 Praise Jah 🙌🏼            130.29 avg
+   5. Kittle Me This                  129.24 avg
+   6. Bridezilla                      128.35 avg
+   7. Spicy Bijan Mustard             127.89 avg
+   8. El Travador                     127.47 avg
+   9. Super Weenie Hut Jr             124.28 avg
+  10. Kenergy                         122.91 avg
+            </div>
+        </section>
+
+        <!-- Avg Points in Losses -->
+        <section>
+            <div class="section-title">😔 Average Points in Losses</div>
+            <p class="stat-description">
+                Average scoring when losing. Higher means competitive losses.
+            </p>
+            <div class="stat-box">
+   1. Luke at my Big Dicker           128.17 avg
+   2. El Travador                     127.86 avg
+   3. Egbuka Matata                   126.47 avg
+   4. Jefferson Starship              117.34 avg
+   5. Spicy Bijan Mustard             117.08 avg
+   6. Kittle Me This                  116.89 avg
+   7. 🙌🏼 Praise Jah 🙌🏼            107.52 avg
+   8. Bridezilla                      105.43 avg
+   9. Kenergy                         103.21 avg
+  10. Super Weenie Hut Jr             99.84 avg
+            </div>
+        </section>
+
+        <!-- Dominant Wins -->
+        <section>
+            <div class="section-title">🏅 Most Dominant Wins (Biggest Point Margins)</div>
+            <p class="stat-description">
+                Top 10 blowout victories. Shows the most crushing wins.
+            </p>
+            <div class="stat-box">
+   1. Luke at my Big Dicker           Wk  1   +87.73
+   2. Egbuka Matata                   Wk  5   +70.50
+   3. Egbuka Matata                   Wk  3   +68.55
+   4. El Travador                     Wk  4   +61.10
+   5. Jefferson Starship              Wk  7   +53.43
+   6. Kittle Me This                  Wk  9   +50.66
+   7. Jefferson Starship              Wk 12   +47.68
+   8. Jefferson Starship              Wk  5   +45.39
+   9. Egbuka Matata                   Wk  8   +44.39
+  10. Luke at my Big Dicker           Wk 10   +43.21
+            </div>
+        </section>
+
+        <!-- Closest Matchups -->
+        <section>
+            <div class="section-title">🤝 Closest Matchups (Smallest Margins)</div>
+            <p class="stat-description">
+                Top 10 nail-biters. The closest games all season.
+            </p>
+            <div class="stat-box">
+   1. Jefferson Starship vs Bridezilla        W by  0.42
+   2. El Travador vs Kenergy                 W by  0.49
+   3. Spicy Bijan Mustard vs Super Weenie    W by  0.62
+   4. Kittle Me This vs 🙌🏼 Praise Jah      W by  0.71
+   5. Bridezilla vs Super Weenie Hut Jr      L by  0.87
+   6. Luke at my Big Dicker vs Jefferson     L by  1.14
+   7. Egbuka Matata vs 🙌🏼 Praise Jah      W by  1.29
+   8. Kenergy vs Spicy Bijan                 L by  1.31
+   9. El Travador vs Egbuka                  L by  1.47
+  10. Bridezilla vs El Travador              L by  1.66
+            </div>
+        </section>
+
+        <!-- Volatility -->
+        <section>
+            <div class="section-title">📈 Week-to-Week Volatility (Biggest Swings)</div>
+            <p class="stat-description">
+                Biggest average point swings between consecutive weeks. Shows predictability.
+            </p>
+            <div class="stat-box">
+   1. Kenergy                                45.68
+   2. Super Weenie Hut Jr                   44.89
+   3. Bridezilla                            42.88
+   4. El Travador                           41.07
+   5. Luke at my Big Dicker                 40.33
+   6. 🙌🏼 Praise Jah 🙌🏼                39.15
+   7. Kittle Me This                        38.92
+   8. Spicy Bijan Mustard                   37.64
+   9. Egbuka Matata                         35.28
+  10. Jefferson Starship                    31.42
+            </div>
+        </section>
+
+        <!-- Head-to-Head Records -->
+        <section>
+            <div class="section-title">🎲 Head-to-Head Records</div>
+            <p class="stat-description">
+                Win-loss record when each team faced each opponent.
+            </p>
+            <div class="stat-box">
+  Bridezilla
+    vs Egbuka Matata                   0-2
+    vs El Travador                     0-1
+    vs Jefferson Starship              1-0
+    vs Kenergy                         1-1
+    vs Kittle Me This                  1-0
+    vs Luke at my Big Dicker           0-1
+    vs Praise Jah                      2-0
+    vs Spicy Bijan Mustard             1-0
+    vs Super Weenie Hut Jr             0-1
+
+  Egbuka Matata
+    vs Bridezilla                      2-0
+    vs El Travador                     1-0
+    vs Jefferson Starship              1-0
+    vs Kenergy                         2-0
+    vs Kittle Me This                  1-0
+    vs Luke at my Big Dicker           1-0
+    vs Praise Jah                      1-1
+    vs Spicy Bijan Mustard             1-0
+    vs Super Weenie Hut Jr             1-0
+
+  El Travador
+    vs Bridezilla                      1-0
+    vs Egbuka Matata                   0-1
+    vs Jefferson Starship              1-0
+    vs Kenergy                         1-0
+    vs Kittle Me This                  1-0
+    vs Luke at my Big Dicker           0-1
+    vs Praise Jah                      1-1
+    vs Spicy Bijan Mustard             1-0
+    vs Super Weenie Hut Jr             1-0
+
+  Jefferson Starship
+    vs Bridezilla                      1-0
+    vs Egbuka Matata                   0-1
+    vs El Travador                     0-1
+    vs Kenergy                         1-0
+    vs Kittle Me This                  1-0
+    vs Luke at my Big Dicker           1-0
+    vs Praise Jah                      1-0
+    vs Spicy Bijan Mustard             1-1
+    vs Super Weenie Hut Jr             1-1
+
+  Kenergy
+    vs Bridezilla                      1-1
+    vs Egbuka Matata                   0-2
+    vs El Travador                     0-1
+    vs Jefferson Starship              0-1
+    vs Kittle Me This                  1-1
+    vs Luke at my Big Dicker           1-0
+    vs Praise Jah                      0-2
+    vs Spicy Bijan Mustard             0-1
+    vs Super Weenie Hut Jr             1-0
+
+  Kittle Me This
+    vs Bridezilla                      0-1
+    vs Egbuka Matata                   0-1
+    vs El Travador                     0-1
+    vs Jefferson Starship              0-1
+    vs Kenergy                         1-1
+    vs Luke at my Big Dicker           1-0
+    vs Praise Jah                      1-0
+    vs Spicy Bijan Mustard             1-0
+    vs Super Weenie Hut Jr             0-1
+
+  Luke at my Big Dicker
+    vs Bridezilla                      1-0
+    vs Egbuka Matata                   0-1
+    vs El Travador                     1-0
+    vs Jefferson Starship              0-1
+    vs Kenergy                         0-1
+    vs Kittle Me This                  0-1
+    vs Praise Jah                      1-1
+    vs Spicy Bijan Mustard             1-0
+    vs Super Weenie Hut Jr             1-0
+
+  Praise Jah
+    vs Bridezilla                      0-2
+    vs Egbuka Matata                   1-1
+    vs El Travador                     1-1
+    vs Jefferson Starship              0-1
+    vs Kenergy                         2-0
+    vs Kittle Me This                  0-1
+    vs Luke at my Big Dicker           1-1
+    vs Spicy Bijan Mustard             1-0
+    vs Super Weenie Hut Jr             1-0
+
+  Spicy Bijan Mustard
+    vs Bridezilla                      0-1
+    vs Egbuka Matata                   0-1
+    vs El Travador                     0-1
+    vs Jefferson Starship              1-1
+    vs Kenergy                         1-0
+    vs Kittle Me This                  0-1
+    vs Luke at my Big Dicker           0-1
+    vs Praise Jah                      0-1
+    vs Super Weenie Hut Jr             1-0
+
+  Super Weenie Hut Jr
+    vs Bridezilla                      1-0
+    vs Egbuka Matata                   0-1
+    vs El Travador                     0-1
+    vs Jefferson Starship              1-1
+    vs Kenergy                         0-1
+    vs Kittle Me This                  1-0
+    vs Luke at my Big Dicker           0-1
+    vs Praise Jah                      0-1
+    vs Spicy Bijan Mustard             0-1
+            </div>
+        </section>
+
+        <footer>
+            <p>Generated by <a href="https://github.com/anorum/hoyt-fantasy-stats">Sleeper Fantasy Football Stats</a></p>
+            <p style="margin-top: 10px; font-size: 0.9em;">See the <a href="https://github.com/anorum/hoyt-fantasy-stats">GitHub repo</a> for the notebook and full documentation</p>
+        </footer>
+    </div>
+</body>
+</html>
