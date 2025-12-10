@@ -54,6 +54,19 @@
             border-bottom: 1px solid #1e3a8a;
         }
 
+        .category-title {
+            color: #f87171;
+            font-size: 1.5em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #dc2626;
+        }
+
+        .category-title:first-of-type {
+            margin-top: 0;
+        }
+
         .stat-description {
             color: #cbd5e1;
             margin-bottom: 15px;
@@ -180,29 +193,19 @@
         <nav class="toc">
             <h3>📋 Quick Navigation</h3>
             <ul>
-                <li><a href="#standings">Standings</a></li>
-                <li><a href="#scores">Top Scores</a></li>
-                <li><a href="#lowscores">Low Scores</a></li>
-                <li><a href="#consistency">Consistency</a></li>
-                <li><a href="#frequency">High/Low Freq</a></li>
-                <li><a href="#clutch">Clutch Wins</a></li>
-                <li><a href="#tough">Tough Losses</a></li>
-                <li><a href="#ptswins">Pts/Wins</a></li>
-                <li><a href="#ptslosses">Pts/Losses</a></li>
-                <li><a href="#margins">Margins</a></li>
-                <li><a href="#draft">Draft Busts</a></li>
-                <li><a href="#valuemiss">Value Miss</a></li>
-                <li><a href="#waiver">Waiver Flops</a></li>
+                <li><a href="#season">Season Stats</a></li>
+                <li><a href="#h2h-perf">H2H Performance</a></li>
                 <li><a href="#efficiency">Efficiency</a></li>
-                <li><a href="#bench">Bench Points</a></li>
-                <li><a href="#steals">Late Steals</a></li>
-                <li><a href="#adpbracket">ADP Bracket</a></li>
-                <li><a href="#positions">Positions</a></li>
-                <li><a href="#h2h">Head-to-Head</a></li>
+                <li><a href="#draft">Draft Quality</a></li>
+                <li><a href="#waiver">Waiver Decisions</a></li>
             </ul>
         </nav>
 
         <!-- Overall Standings -->
+        <section id="season">
+            <h2 class="category-title">📊 Team Season Stats</h2>
+        </section>
+
         <section id="standings">
             <div class="section-title">📊 Overall Standings</div>
             <p class="stat-description">
@@ -399,6 +402,11 @@
             </div>
         </section>
 
+        <!-- H2H Performance Section Header -->
+        <section id="h2h-perf">
+            <h2 class="category-title">🎯 Head-to-Head Performance</h2>
+        </section>
+
         <!-- Average Point Margin -->
         <section id="margins">
             <div class="section-title">📊 Average Point Margin (vs Opponent)</div>
@@ -479,6 +487,11 @@
             </div>
         </section>
 
+        <!-- Draft Quality Analysis Category -->
+        <section id="draft-category">
+            <h2 class="category-title">📋 Draft Quality Analysis</h2>
+        </section>
+
         <!-- Worst Draft Picks -->
         <section id="draft">
             <div class="section-title">💔 Worst Draft Picks (Biggest Busts)</div>
@@ -499,6 +512,11 @@
             </div>
         </section>
 
+        <!-- Waiver Decisions Category -->
+        <section id="waiver-category">
+            <h2 class="category-title">💰 Waiver Decisions</h2>
+        </section>
+
         <!-- Expensive Waiver Busts -->
         <section id="waiver">
             <div class="section-title">🚨 Most Expensive Waiver Flops ($10+)</div>
@@ -517,6 +535,11 @@
    9. El Travador - Trey Benson (RB, ARI) $16                            28.90 pts
   10. Luke at my Big Dicker - Christian Kirk (WR, HOU) $20               37.40 pts
             </div>
+        </section>
+
+        <!-- Team Efficiency Category -->
+        <section id="efficiency-category">
+            <h2 class="category-title">⚙️ Team Efficiency</h2>
         </section>
 
         <!-- Manager Efficiency -->
