@@ -91,7 +91,70 @@
             text-decoration: underline;
         }
 
+        nav.toc {
+            position: sticky;
+            top: 0;
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(4px);
+            padding: 15px 20px;
+            margin: -20px -20px 30px -20px;
+            border-bottom: 2px solid #1e40af;
+            z-index: 100;
+            overflow-x: auto;
+        }
+
+        nav.toc h3 {
+            color: #60a5fa;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav.toc ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        nav.toc a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.85em;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        nav.toc a:hover {
+            color: #60a5fa;
+            background-color: rgba(37, 99, 235, 0.1);
+        }
+
+        section {
+            scroll-margin-top: 80px;
+        }
+
         @media (max-width: 600px) {
+            nav.toc {
+                margin: -20px -20px 20px -20px;
+                padding: 12px 15px;
+            }
+
+            nav.toc h3 {
+                font-size: 0.8em;
+            }
+
+            nav.toc a {
+                font-size: 0.75em;
+                padding: 4px 8px;
+            }
+
+            nav.toc ul {
+                gap: 10px;
+            }
             h1 {
                 font-size: 1.8em;
             }
@@ -114,8 +177,32 @@
             <p class="subtitle">League Analysis - Week 1-14</p>
         </header>
 
+        <nav class="toc">
+            <h3>📋 Quick Navigation</h3>
+            <ul>
+                <li><a href="#standings">Standings</a></li>
+                <li><a href="#scores">Top Scores</a></li>
+                <li><a href="#lowscores">Low Scores</a></li>
+                <li><a href="#consistency">Consistency</a></li>
+                <li><a href="#frequency">High/Low Freq</a></li>
+                <li><a href="#clutch">Clutch Wins</a></li>
+                <li><a href="#tough">Tough Losses</a></li>
+                <li><a href="#ptswins">Pts/Wins</a></li>
+                <li><a href="#ptslosses">Pts/Losses</a></li>
+                <li><a href="#margins">Margins</a></li>
+                <li><a href="#draft">Draft Busts</a></li>
+                <li><a href="#waiver">Waiver Flops</a></li>
+                <li><a href="#efficiency">Efficiency</a></li>
+                <li><a href="#bench">Bench Points</a></li>
+                <li><a href="#steals">Late Steals</a></li>
+                <li><a href="#adpbracket">ADP Bracket</a></li>
+                <li><a href="#positions">Positions</a></li>
+                <li><a href="#h2h">Head-to-Head</a></li>
+            </ul>
+        </nav>
+
         <!-- Overall Standings -->
-        <section>
+        <section id="standings">
             <div class="section-title">📊 Overall Standings</div>
             <p class="stat-description">
                 Final records and average points per game for all teams. Shows who's winning the league and who's putting up the most points.
@@ -135,7 +222,7 @@
         </section>
 
         <!-- Top Scores -->
-        <section>
+        <section id="scores">
             <div class="section-title">🔥 Top 10 Scores</div>
             <p class="stat-description">
                 Highest individual week performances.
@@ -175,7 +262,7 @@
         </section>
 
         <!-- Consistency -->
-        <section>
+        <section id="consistency">
             <div class="section-title">🎯 Consistency Score (Lower = More Consistent)</div>
             <p class="stat-description">
                 Standard deviation of points scored. Lower = predictable/consistent, Higher = boom or bust.
@@ -312,7 +399,7 @@
         </section>
 
         <!-- Average Point Margin -->
-        <section>
+        <section id="margins">
             <div class="section-title">📊 Average Point Margin (vs Opponent)</div>
             <p class="stat-description">
                 Average point differential per game. Positive means you outscore opponents, negative means they outscore you.
@@ -392,7 +479,7 @@
         </section>
 
         <!-- Worst Draft Picks -->
-        <section>
+        <section id="draft">
             <div class="section-title">💔 Worst Draft Picks (Biggest Busts)</div>
             <p class="stat-description">
                 Early draft picks that underperformed. Based on picks in rounds 1-10.
@@ -412,7 +499,7 @@
         </section>
 
         <!-- Expensive Waiver Busts -->
-        <section>
+        <section id="waiver">
             <div class="section-title">🚨 Most Expensive Waiver Flops ($10+)</div>
             <p class="stat-description">
                 Waiver pickups that cost $10 or more but delivered minimal production. Rough decisions.
@@ -432,7 +519,7 @@
         </section>
 
         <!-- Manager Efficiency -->
-        <section>
+        <section id="efficiency">
             <div class="section-title">⚙️ Manager Efficiency (% of Available Points Used)</div>
             <p class="stat-description">
                 Measures lineup optimization. Higher % means you started better players. Lower means bench had more studs.
@@ -452,8 +539,8 @@
         </section>
 
         <!-- Bench Points -->
-        <section>
-            <div class="section-title">🛋️ Total Bench Points (Left on Table)</div>
+        <section id="bench">
+            <h2 class="section-title">🛋️ Total Bench Points (Left on Table)</h2>
             <p class="stat-description">
                 Sum of all points from benched players. Higher means more studs on bench. Either good luck, poor planning, or both.
             </p>
@@ -472,8 +559,8 @@
         </section>
 
         <!-- Head-to-Head Records -->
-        <section>
-            <div class="section-title">🎲 Head-to-Head Records</div>
+        <section id="h2h">
+            <h2 class="section-title">🎲 Head-to-Head Records</h2>
             <p class="stat-description">
                 Win-loss record when each team faced each opponent.
             </p>
@@ -590,7 +677,7 @@
             </div>
         </section>
 
-        <section>
+        <section id="steals">
             <h2 class="section-title">🌟 LATE-ROUND STEALS (Picks 101+)</h2>
             <p class="stat-description">Top performers selected in rounds 11+. These picks delivered exceptional value when drafted late.</p>
             <div class="stat-box"> 1. Pick 160 (Rd 16) | Drake Maye                       (QB) |  232.78 pts
@@ -605,7 +692,7 @@
 10. Pick 140 (Rd 14) | Jake Bates                      (K) |  109.00 pts</div>
         </section>
 
-        <section>
+        <section id="adpbracket">
             <h2 class="section-title">📊 AVG PPR POINTS BY ADP BRACKET (By Position)</h2>
             <p class="stat-description">Shows how different positions performed based on draft position. Early picks should produce more points; later picks are more valuable if they exceed expectations.</p>
             <div class="stat-box">  QB
@@ -639,7 +726,7 @@
     Picks 101+:      61.99 avg ( 9 picks)</div>
         </section>
 
-        <section>
+        <section id="positions">
             <h2 class="section-title">🏆 POSITIONAL PERFORMANCE (Total Draft Production)</h2>
             <p class="stat-description">Shows which positions delivered the most value across all draft picks. QB and K led production despite being late picks.</p>
             <div class="stat-box">  DEF |  9 players drafted, avg  61.99 pts/player
